@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Flight Search Engine';
+  searchForm : NgForm;
+  oldSearchForm : NgForm;
+  tempForm : NgForm;
+
+  transferFormData(searchForm) {
+    this.searchForm = searchForm;
+  }
 }

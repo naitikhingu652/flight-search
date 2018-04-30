@@ -1,0 +1,47 @@
+<ul class="nav nav-tabs">
+  <li class="nav-items"><a class="nav-link" [class.active]="viewMode == 'oneWay'" (click)="viewMode='oneWay'">One Way</a></li>
+  <li class="nav-items"><a class="nav-link" [class.active]="viewMode == 'return'" (click)="viewMode='return'">Return</a></li>
+</ul>
+<div>
+  <form class="search-form" #flightSearchForm="ngForm" (ngSubmit)="submitFormData(flightSearchForm)">
+    <div class="form-group row">
+      <label for="source" class="col-sm-4 col-form-label">Source</label>
+      <div class="col-sm-8">
+        <input ngModel name="source" class="form-control" type="text" id="source" placeholder="Enter Source City" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="destination" class="col-sm-4 col-form-label">Destination</label>
+      <div class="col-sm-8">
+        <input ngModel name="destination" class="form-control" type="text" id="destination" placeholder="Enter Destination City" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="departure" class="col-sm-4 col-form-label">Departure</label>
+      <div class="col-sm-8">
+        <input ngModel name="departure" class="form-control" id="departure" type="date" required>
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="viewMode == 'return'">
+      <label for="arrival" class="col-sm-4 col-form-label">Arrival</label>
+      <div class="col-sm-8">
+        <input ngModel name="arrival" class="form-control" id="arrival" name="arrival" type="date" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="passengers" class="col-sm-4 col-form-label">Passengers</label>
+      <div class="col-sm-8">
+        <select ngModel name="passengers" class="form-control" id="passengers" name="passengers" required>
+          <option value="" selected disabled>Passengers</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="flightSearchForm.invalid">Submit</button>
+  </form>
+</div>

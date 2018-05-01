@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 
@@ -19,7 +19,6 @@ import { FlightSearchService } from './flight/flight-search-service/flight-searc
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule
   ],
   providers: [

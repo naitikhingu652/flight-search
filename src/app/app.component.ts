@@ -9,8 +9,6 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   title = 'Flight Search Engine';
   searchForm : NgForm;
-  oldSearchForm : NgForm;
-  tempForm : NgForm;
 
   transferFormData(searchForm) {
     this.searchForm = searchForm;

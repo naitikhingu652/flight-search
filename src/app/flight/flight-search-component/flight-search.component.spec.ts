@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlightSearchComponent } from './flight-search.component';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { FlightSearchService } from '../flight-search-service/flight-search.service';
 
 describe('FlightSearchComponent', () => {
   let component: FlightSearchComponent;
@@ -8,7 +11,12 @@ describe('FlightSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlightSearchComponent ]
+      declarations: [ FlightSearchComponent ],
+      imports: [
+        FormsModule,
+        HttpModule
+      ],
+      providers: [ FlightSearchService ]
     })
     .compileComponents();
   }));
@@ -19,7 +27,7 @@ describe('FlightSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create flight search component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlightSearchComponent } from './flight-search.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlightSearchService } from '../flight-search-service/flight-search.service';
 
@@ -13,7 +13,7 @@ describe('FlightSearchComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ FlightSearchComponent ],
       imports: [
-        FormsModule,
+        ReactiveFormsModule,
         HttpModule
       ],
       providers: [ FlightSearchService ]

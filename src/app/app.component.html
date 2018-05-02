@@ -2,10 +2,10 @@
   <h2 class="title">{{ title }}</h2>
   <div class="row">
     <div class="col-md-5">
-      <app-flight-search (searchFlightEmiter)="transferFormData($event)"></app-flight-search>
+      <app-flight-search (searchFlightEmitter)="transferFormData($event)" (viewModeChangeEmitter)="test($event)"></app-flight-search>
     </div>
     <div class="col-md-7">
-      <app-flight-result [searchForm]="searchForm"></app-flight-result>
+      <app-flight-result [searchForm]="searchForm" [viewMode]="viewMode"></app-flight-result>
     </div>
   </div>
 </div>

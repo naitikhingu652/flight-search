@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,13 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Flight Search Engine';
-  searchForm : NgForm;
+  searchForm : FormGroup;
+  viewMode : string;
 
   transferFormData(searchForm) {
     this.searchForm = searchForm;
+  }
+  test(viewMode) {
+    this.viewMode = viewMode;
   }
 }

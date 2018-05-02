@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-flight-search',
@@ -9,14 +9,37 @@ import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angula
 export class FlightSearchComponent implements OnInit {
 
   viewMode="oneWay";
-  flightSearchForm;
+  oneWayFlightSearchForm: FormGroup;
+  twoWayFlightSearchForm: FormGroup;
+  form: FormGroup;
 
-  @Output() searchFlightEmiter = new EventEmitter<NgForm>();
+  @Output() searchFlightEmitter = new EventEmitter<FormGroup>();
+  @Output() viewModeChangeEmitter = new EventEmitter<string>();
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.oneWayFlightSearchForm = this.formBuilder.group({
+      source: ['', Validators.required],
+      destination: ['', Validators.required],
+      departure: ['', Validators.required],
+      passengers: ['', Validators.required]
+    });
+    this.twoWayFlightSearchForm = this.formBuilder.group({
+      source: ['', Validators.required],
+      destination: ['', Validators.required],
+      departure: ['', Validators.required],
+      arrival:  ['', Validators.required], 
+      passengers: ['', Validators.required]
+    });
   }
 
-  submitFormData(flightSearchForm:NgForm) {
-    this.searchFlightEmiter.emit(flightSearchForm);
+  submitOnewayFormData(flightSearchForm:FormGroup) {
+    this.viewModeChangeEmitter.emit(this.viewMode);
+    this.searchFlightEmitter.emit(this.oneWayFlightSearchForm);
+  }
+  submitTwowayFormData(flightSearchForm:FormGroup) {
+    this.viewModeChangeEmitter.emit(this.viewMode);
+    this.searchFlightEmitter.emit(this.twoWayFlightSearchForm);
   }
 }

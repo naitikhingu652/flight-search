@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FlightSearchService } from '../flight-search-service/flight-search.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-flight-result',
@@ -8,7 +9,8 @@ import { FlightSearchService } from '../flight-search-service/flight-search.serv
 })
 export class FlightResultComponent implements OnChanges {
 
-  @Input() searchForm;
+  @Input() searchForm : FormGroup;
+  @Input() viewMode : string;
 
   oneWayFlights: any[];
   returnFlights: any[];
@@ -25,6 +27,7 @@ export class FlightResultComponent implements OnChanges {
   }
 
   getFlights(searchForm) {
+    console.log(this.viewMode);
     this.source = this.searchForm.controls['source'].value;
     this.destination = this.searchForm.controls['destination'].value;
     this.passengers = +this.searchForm.controls['passengers'].value;

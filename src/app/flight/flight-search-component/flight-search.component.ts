@@ -11,7 +11,6 @@ export class FlightSearchComponent implements OnInit {
   viewMode="oneWay";
   oneWayFlightSearchForm: FormGroup;
   twoWayFlightSearchForm: FormGroup;
-  form: FormGroup;
 
   @Output() searchFlightEmitter = new EventEmitter<FormGroup>();
   @Output() viewModeChangeEmitter = new EventEmitter<string>();

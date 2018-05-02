@@ -1,13 +1,20 @@
+<div class="row" *ngIf="oneWayFlights">
+  <div class="col-md-12">
+    <h2 *ngIf="!returnFlights">{{ source }} > {{ destination }}</h2>
+    <h2 *ngIf="returnFlights">{{ source }} > {{ destination }} > {{ source }}</h2>
+  </div>
+</div>
 <div class="row">
   <div [class.col-md-12]="!returnFlights" [class.col-md-6]="returnFlights">
     <ul class="list-group list-group-flush">
       <li *ngFor="let flight of oneWayFlights" class="list-group-item">
           <div class="card">
             <div class="card-body">
-              <h2 class="card-title">{{ flight.from }} > {{ flight.to }}</h2>
-              <p class="card-text">Depart: {{ flight.departureTime }}</p>
-              <p class="card-text">Arrive: {{ flight.arrivalTime }}</p>
-              <p class="card-text">Fare: {{ flight.flightRate }}</p>
+              <h6 class="card-title">{{ flight.source }} -> {{ flight.destination }}</h6>
+              <p class="card-text">Flight Number: {{ flight.id }}</p>
+              <p class="card-text">Depart: {{ flight.departure }}</p>
+              <p class="card-text">Arrive: {{ flight.arrival }}</p>
+              <p class="card-text">Fare: {{ flight.fare * passengers }}</p>
               <button class="btn btn-primary">Book</button>
             </div>
           </div>
@@ -20,10 +27,11 @@
       <li *ngFor="let flight of returnFlights" class="list-group-item">
         <div class="card">
             <div class="card-body">
-              <h2 class="card-title">{{ flight.from }} > {{ flight.to }}</h2>
-              <p class="card-text">Depart: {{ flight.departureTime }}</p>
-              <p class="card-text">Arrive: {{ flight.arrivalTime }}</p>
-              <p class="card-text">Fare: {{ flight.flightRate }}</p>
+              <h6 class="card-title">{{ flight.source }} -> {{ flight.destination }}</h6>
+              <p class="card-text">Flight Number: {{ flight.id }}</p>
+              <p class="card-text">Depart: {{ flight.departure }}</p>
+              <p class="card-text">Arrive: {{ flight.arrival }}</p>
+              <p class="card-text">Fare: {{ flight.fare * passengers }}</p>
               <button class="btn btn-primary">Book</button>
             </div>
           </div>

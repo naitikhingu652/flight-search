@@ -7,15 +7,15 @@ import { Observable } from 'rxjs/observable';
 @Injectable()
 export class FlightSearchService {
 
-  private url = "http://localhost:3000/flights";
+  private url = "https://my-json-server.typicode.com/naitikhingu652/flight-search/flights";
 
   constructor(private http: Http) { }
 
   getFlights(source, destination) {
-    
+
     let requestParams = new URLSearchParams();
-    requestParams.append('from', source)
-    requestParams.append('to', destination);
+    requestParams.append('source', source)
+    requestParams.append('destination', destination);
 
     let requestOptions = new RequestOptions({params: requestParams})
 

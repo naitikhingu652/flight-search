@@ -17,7 +17,7 @@
 			"departure" : "1:00 PM",
 			"arrival" : "3:30 PM",
 			"fare" : 1800
-		}
+		},
 		{
 			"id" : "IG101",
 			"airline" : "Indigo Airlines",
